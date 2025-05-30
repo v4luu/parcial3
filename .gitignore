@@ -1,0 +1,9 @@
+lambda1/env/
+lambda2/env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env/
+.venv/
+

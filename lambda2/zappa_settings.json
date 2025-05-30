@@ -1,0 +1,48 @@
+{
+    "dev2": {
+        "app_function": "procesador.lambda_handler",
+        "aws_region": "us-east-1",
+        "environment_variables": {
+            "BUCKET_NAME": "parci4l3",
+            "PUBLIMETRO_URL": "https://www.publimetro.co",
+            "ELTIEMPO_URL": "https://www.eltiempo.com"
+        },
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "project_name": "null",
+        "runtime": "python3.10",
+        "s3_bucket": "parci4l3",
+        "keep_warm": false,
+        "apigateway_enabled": false,
+        "manage_roles": false,
+        "role_name": "LabRole",
+        "events": [
+            {
+                "function": "procesador.lambda_handler",
+                "event_source": {
+                    "arn": "arn:aws:s3:::parci4l3",
+                    "events": ["s3:ObjectCreated:*"],
+                    "filters": {
+                        "Key": {
+                            "FilterRules": [
+                                {
+                                    "Name": "prefix",
+                                    "Value": "headlines/raw/"
+                                },
+                                {
+                                    "Name": "suffix",
+                                    "Value": ".html"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

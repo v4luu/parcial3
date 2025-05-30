@@ -1,0 +1,27 @@
+{
+    "dev": {
+        "app_function": "parcial.lambda_handler",
+        "aws_region": "us-east-1",
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "project_name": "null",
+        "runtime": "python3.10",
+        "s3_bucket": "parci4l3",
+        "keep_warm": false,
+        "apigateway_enabled": false,
+        "manage_roles": false,
+        "role_name": "LabRole",
+        "events": [
+            {
+                "function": "parcial.lambda_handler",
+                "type": "schedule",
+                "expression": "rate(1 day)" //rate(1 minute) 
+            }
+        ]
+    }
+}
