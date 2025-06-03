@@ -35,12 +35,6 @@ jobs:
           source env/bin/activate
           pytest
 
-      - name: Revisión de código con flake8
-        run: |
-          source env/bin/activate
-          flake8 lambda1/parcial.py || true
-          flake8 lambda2/procesador.py || true
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
