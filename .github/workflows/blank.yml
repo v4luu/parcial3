@@ -28,7 +28,7 @@ jobs:
           source env/bin/activate
           pip install -r lambda1/requirements.txt
           pip install -r lambda2/requirements.txt
-          pip install flake8 pytest
+          pip install flake8 pytest pytest-mock
 
       - name: Pruebas unitarias 
         run: |
